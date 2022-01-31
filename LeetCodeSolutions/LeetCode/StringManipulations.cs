@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 
 namespace LeetCodeSolutions
 {
@@ -21,6 +17,7 @@ namespace LeetCodeSolutions
             return dict.Values.ToList();
         }
 
+        // simple string sorting O(nlogn)
         private string SortStr_O_NlogN(string s)
         {
             var chars = s.ToCharArray();
@@ -28,15 +25,16 @@ namespace LeetCodeSolutions
             return new string(chars);
         }
 
-        const int MAX_CHAR = 26;
+
+        // efficiate string sorting - Counting Sort O(n)
         private string SortStr_O_N(string s)
         {
             if (s == null || s.Length <= 1) return s;
             var sb = new StringBuilder();
-            var letters = new int[MAX_CHAR];
+            var letters = new int[Consts.MAX_CHAR];
 
             foreach (var ch in s.ToCharArray()) letters[ch - 'a']++;
-            for (int i = 0; i < MAX_CHAR; i++)//letters
+            for (int i = 0; i < Consts.MAX_CHAR; i++)//letters
             {
                 while (letters[i] > 0)
                 {

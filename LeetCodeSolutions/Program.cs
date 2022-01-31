@@ -1,5 +1,5 @@
-﻿// See https://aka.ms/new-console-template for more information
-using LeetCodeSolutions;
+﻿using LeetCodeSolutions;
+using LeetCodeSolutions.Models;
 
 var rotatedList = new LinkedListsManipulations().RotateRight(new ListNode(1)
 {

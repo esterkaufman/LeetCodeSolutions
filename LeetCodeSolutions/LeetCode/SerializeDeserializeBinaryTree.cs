@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using LeetCodeSolutions.Models;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace LeetCodeSolutions
 {
@@ -203,15 +200,6 @@ namespace LeetCodeSolutions
         }
 
     }
-
-
-
-    public class TreeNode
-    {
-        public int val;
-        public TreeNode left;
-        public TreeNode right;
-        public TreeNode(int x) { val = x; }
-    }
+    
 
 }

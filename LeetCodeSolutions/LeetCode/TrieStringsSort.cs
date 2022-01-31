@@ -1,19 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using LeetCodeSolutions.Models;
+
 
 namespace LeetCodeSolutions
 {
     public class TrieStringsSort
     {
-        const int MAX_CHAR = 26;
-        public class Trie
-        {
-            public List<int> indices; // index is set only when node is a leaf node;
-            public Trie[] child = new Trie[MAX_CHAR];
-        }
+       
 		public IList<IList<string>> GroupAnagrams(string[] strs)
 		{
 			var res = new List<IList<string>>();
@@ -57,7 +49,7 @@ namespace LeetCodeSolutions
 		{
 			if (node != null)
 			{
-				for (int i = 0; i < MAX_CHAR; i++)
+				for (int i = 0; i < Consts.MAX_CHAR; i++)
 				{
 					if (node.child[i] != null)
 					{

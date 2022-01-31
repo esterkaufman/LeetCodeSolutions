@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LeetCodeSolutions
+﻿namespace LeetCodeSolutions
 {
     internal class ArraysManipulations
     {
-        public void Rotate2(int[] nums, int k)
+        //https://leetcode.com/problems/rotate-array/
+        public void Rotate_UsingSpace(int[] nums, int k)
         {
             if (k > 0 && nums != null && nums.Length > 1 && (k %= nums.Length) > 0)
             {
@@ -42,7 +37,7 @@ namespace LeetCodeSolutions
                 j--;
             }
         }
-        public void RotateByJumpingIdx_NotWorking(int[] nums, int k)
+        public void RotateByJumpingIdx_NotCompleted(int[] nums, int k)
         {
             if (k > 0 && nums != null && nums.Length > 1 && (k %= nums.Length) > 0)
             {            
@@ -96,6 +91,47 @@ namespace LeetCodeSolutions
             arr = new int[] { 1, 2, 3, 4, 5, 6, 7, 8 };
             Rotate(arr, 6);
             Console.WriteLine(string.Join(",", arr));
+        }
+
+
+        //https://leetcode.com/problems/koko-eating-bananas/
+        public int MinEatingSpeed(int[] piles, int h)
+        {
+            // Initalize the left and right boundaries 
+            int left = 1, right = 1;
+            foreach (int pile in piles)
+            {
+                right = Math.Max(right, pile);
+            }
+
+            while (left < right)
+            {
+                // Get the middle index between left and right boundary indexes.
+                // hourSpent stands for the total hour Koko spends.
+                int middle = (left + right) / 2;
+                int hourSpent = 0;
+
+                // Iterate over the piles and calculate hourSpent.
+                // We increase the hourSpent by ceil(pile / middle)
+                foreach (int pile in piles)
+                {
+                    hourSpent += (int)Math.Ceiling((double)pile / middle);
+                }
+
+                // Check if middle is a workable speed, and cut the search space by half.
+                if (hourSpent <= h)
+                {
+                    right = middle;
+                }
+                else
+                {
+                    left = middle + 1;
+                }
+            }
+
+            // Once the left and right boundaries coincide, we find the target value,
+            // that is, the minimum workable eating speed.
+            return right;
         }
     }
 }

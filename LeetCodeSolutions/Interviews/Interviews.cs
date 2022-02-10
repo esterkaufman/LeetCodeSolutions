@@ -1,4 +1,4 @@
-﻿namespace LeetCodeSolutions
+﻿namespace LeetCodeSolutions.Interviews
 {
     internal class Interviews
     {

@@ -1,36 +1,12 @@
 ﻿using LeetCodeSolutions;
 using LeetCodeSolutions.Interviews;
+using LeetCodeSolutions.LeetCode;
 using LeetCodeSolutions.Models;
 
+new IsValidSudoku_Solution().Run();
 
-var fs = new InMemoryFileSystem();
-fs.AddFile(11, "File_1", "", "png");
-fs.AddFile(12, "File_2", "", "png");
-fs.AddDir(13, "Dir_3");
-fs.AddFile(14, "File_4", "", "png");
+new InMemoryFileSystem().Run();
 
-fs.AddFile(31, "File3_1", "", "png", 13);
-fs.AddDir(32, "Dir3_2",13);
-fs.AddFile(33, "File3_3", "", "png", 13);
-fs.AddFile(34, "File3_4", "", "png", 13);
-
-fs.AddDir(321, "Dir3_2_1", 32);
-
-fs.AddDir(3211, "Dir3_2_1_1", 321);
-fs.PrintAll();
-//Output
-/*
-File_1
-File_2
-Dir_3
-        File3_1
-        Dir3_2
-                Dir3_2_1
-                        Dir3_2_1_1
-        File3_3
-        File3_4
-File_4
-*/
 var rotatedList = new LinkedListsManipulations().RotateRight(new ListNode(1)
 {
     next = new ListNode(2)

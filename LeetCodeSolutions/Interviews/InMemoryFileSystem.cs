@@ -34,6 +34,37 @@ namespace LeetCodeSolutions.Interviews
                 if (item is Directory) PrintAll(item.id, level + 1);
             }
         }
+
+        public void Run()
+        {
+            AddFile(11, "File_1", "", "png");
+            AddFile(12, "File_2", "", "png");
+            AddDir(13, "Dir_3");
+            AddFile(14, "File_4", "", "png");
+
+            AddFile(31, "File3_1", "", "png", 13);
+            AddDir(32, "Dir3_2", 13);
+            AddFile(33, "File3_3", "", "png", 13);
+            AddFile(34, "File3_4", "", "png", 13);
+
+            AddDir(321, "Dir3_2_1", 32);
+
+            AddDir(3211, "Dir3_2_1_1", 321);
+            PrintAll();
+            //Output
+            /*
+            File_1
+            File_2
+            Dir_3
+                    File3_1
+                    Dir3_2
+                            Dir3_2_1
+                                    Dir3_2_1_1
+                    File3_3
+                    File3_4
+            File_4
+            */
+        }
     }
     class Entity
     {

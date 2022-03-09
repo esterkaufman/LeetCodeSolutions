@@ -8,14 +8,16 @@ namespace LeetCodeSolutions
         {
             var dict = new Dictionary<string, IList<string>>();
 
-            foreach(var s in strs){
+            foreach (var s in strs)
+            {
                 var sortedS = SortStr_O_NlogN(s);
-                if (!dict.ContainsKey(sortedS))                
-                    dict.Add(sortedS, new List<string>());                
+                if (!dict.ContainsKey(sortedS))
+                    dict.Add(sortedS, new List<string>());
                 dict[sortedS].Add(s);
             }
             return dict.Values.ToList();
         }
+
 
         // simple string sorting O(nlogn)
         private string SortStr_O_NlogN(string s)
@@ -44,5 +46,22 @@ namespace LeetCodeSolutions
             }
             return sb.ToString();
         }
+
+        internal void permutation_backtrack(string s, HashSet<char> charSet)
+        {
+            if (charSet.Count() == s.Length)//reach same count as s, need to print this permutation            
+                Console.WriteLine(string.Concat(charSet));            
+            else
+            {
+                foreach (var c in s)//each char in input s opens new function call
+                {
+                    if (charSet.Contains(c)) continue;//if not already in set
+                    charSet.Add(c);//add char
+                    permutation_backtrack(s, charSet);//start new functions tree with current chars in set, so far
+                    charSet.Remove(c);//remove it, so in next iteration, will start options tree, from next char
+                }
+            }
+        }
+
     }
 }

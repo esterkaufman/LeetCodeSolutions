@@ -186,5 +186,21 @@
             }
             return maxProfit;
         }
+
+        //https://leetcode.com/problems/subsets/discuss/1848352/simple-4-lines-faster-than-96-c-solution
+
+        internal void GetAllSubsets_backtrack(int[] nums, List<int> temp, int index = 0)
+        {
+
+            for (; index < nums.Length; index++)
+            {
+                temp.Add(nums[index]);
+                Console.WriteLine(string.Concat(temp));
+                GetAllSubsets_backtrack(nums, temp, index+1);
+                temp.RemoveAt(temp.Count -1);//remove last added one
+            }
+        }
+            
+        
     }
 }

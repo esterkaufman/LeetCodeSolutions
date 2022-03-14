@@ -5,6 +5,9 @@ using LeetCodeSolutions.Models;
 
 
 
+new ArraysManipulations().Subsets(new[] {1,2,3});
+new ArraysManipulations().GetAllSubsets_backtrack(new[] {1,2,3},new List<int>());
+
 new StringManipulations().permutation_backtrack("ABC",new HashSet<char>());
 
 
